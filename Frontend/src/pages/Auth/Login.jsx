@@ -56,13 +56,13 @@ const Login = () => {
 
           {error && <p className="text-red-500 text-xs pb-2.5">{error}</p>}
 
-          <button type="submit" className="btn-primary">
+          <button type="submit" className="btn-primary cursor-pointer">
             Login
           </button>
 
           <p>
             Don't have an accont?{" "}
-            <Link className="font-medium text-primary underline" to="/signup">
+            <Link className="font-medium text-primary underline " to="/signup">
               SignUp
             </Link>
           </p>
