@@ -5,8 +5,6 @@ import CustomLegend from './CustomLegend'
 
 
 const CustomPieChart = ({data, label, totalAmount, colors, showTextAnchor}) => {
-      console.log(showTextAnchor)
-      console.log(label, totalAmount)
   return (
     <ResponsiveContainer width="100%" height={300}>
         
