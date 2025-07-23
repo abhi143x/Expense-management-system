@@ -12,6 +12,7 @@ import { addThousandsSeparator } from '../../utils/helper.cjs';
 import RecentTransactions from '../../components/Dashboard/RecentTransactions';
 import FinancialOverview from '../../components/Dashboard/FinancialOverview';
 import ExpenseTransactions from '../../components/Dashboard/ExpenseTransactions';
+import Last30DaysExpenses from '../../components/Dashboard/Last30DaysExpenses';
 
 
 const Home = () => {
@@ -45,7 +46,7 @@ const Home = () => {
     return () => {}
   }, []);
   
-  return (
+   return (
    <DashboardLayout activeMenu="Dashboard">
     <div className='my-5 mx-auto'>
       <div className='grid grid-cols-1 md:grid-cols-3 gap-5'>
@@ -60,7 +61,7 @@ const Home = () => {
           icon={<LuWalletMinimal />}
           label="Total Income"
           value={addThousandsSeparator(dashboardData?.totalIncome || 0)}
-          color="bg-orange-500"
+          color="bg-green-500"
           />
 
           <InfoCard
@@ -86,6 +87,10 @@ const Home = () => {
         <ExpenseTransactions
           transactions={dashboardData?.last30DaysExpense?.transactions || {}}
           onSeeMore={() => navigate("/expense")}
+        />
+
+        <Last30DaysExpenses
+          data={dashboardData?.last30DaysExpense?.transactions || []}
         />
       </div>
     </div>

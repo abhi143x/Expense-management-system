@@ -21,3 +21,11 @@ export const addThousandsSeparator = (num) => {
 
     return Number(num).toLocaleString("en-IN");
 };
+
+export const prepareExpenseBarCharData = (data) => {
+    const charData = data.map((item) => ({
+      category: item?.category,
+      amount: Number(item?.amount),
+    }));
+    return charData;
+};
