@@ -5,7 +5,6 @@ import { useNavigate } from 'react-router-dom';
 import axiosInstance from '../../utils/axiosInstanse.cjs';
 import { API_PATHS } from '../../utils/apiPaths.cjs';
 import InfoCard from '../../components/Cards/InfoCard';
-
 import { LuHandCoins, LuWalletMinimal } from 'react-icons/lu';
 import { IoMdCard } from "react-icons/io"
 import { addThousandsSeparator } from '../../utils/helper.cjs';
@@ -51,7 +50,7 @@ const Home = () => {
    return (
    <DashboardLayout activeMenu="Dashboard">
     <div className='my-5 mx-auto'>
-      <div className='grid grid-cols-1 md:grid-cols-3 gap-5'>
+      <div className='grid grid-cols-1 md:grid-cols-3 gap-6'>
         <InfoCard
           icon={<IoMdCard />}
           label="Total Balance"
@@ -87,7 +86,7 @@ const Home = () => {
         />
 
         <ExpenseTransactions
-          transactions={dashboardData?.last30DaysExpense?.transactions || {}}
+          transactions={dashboardData?.last30DaysExpense?.transactions || []}
           onSeeMore={() => navigate("/expense")}
         />
 

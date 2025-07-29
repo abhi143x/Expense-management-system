@@ -4,22 +4,21 @@ import CustomPieChart from "../Charts/CustomPieChart";
 const COLORS = ["#875CF5", "#FA2C37", "#FF6900", "#4f39f6"];
 
 const RecentIncomeWithChart = ({ data, totalIncome }) => {
+  const [chartData, setChartData] = useState([]);
 
-    const [chartData, setChartData] = useState([])
+  const prepareChartData = () => {
+    const dataArr = data?.map((item) => ({
+      name: item?.source,
+      amount: item?.amount,
+    }));
 
-    const prepareIncomeBarChartData = () => {
-        const dataArr = data?.map((item) => ({
-            name: item?.source,
-            amount: item?.amount,
-        }));
+    setChartData(dataArr);
+  };
 
-        setChartData(dataArr)
-    };
-
-    useEffect(() => {
-        prepareIncomeBarChartData();
-        return () => {}
-    }, [data]);
+  useEffect(() => {
+    prepareChartData();
+    return () => {};
+  }, [data]);
 
   return (
     <div className="card">

@@ -13,7 +13,7 @@ const AddExpenseForm = ({ onAddExpense }) => {
   const handleChange = (key, value) => setIncome({ ...income, [key]: value });
 
   return (
-    <div className="">
+    <div>
       <EmojiPickerPopup
         icon={income.icon}
         onSelect={(selectedIcon) => handleChange("icon", selectedIcon)}
@@ -44,7 +44,11 @@ const AddExpenseForm = ({ onAddExpense }) => {
       />
 
       <div className="flex justify-end mt-6">
-        <button type="button" className="add-btn add-btn-fill" onClick={() => onAddExpense(income)}>
+        <button
+          type="button"
+          className="add-btn add-btn-fill"
+          onClick={() => onAddExpense(income)}
+        >
           Add Expense
         </button>
       </div>

@@ -6,8 +6,8 @@ import { validateEmail } from "../../utils/helper.cjs";
 import ProfilePhotoSelector from "../../components/Inputs/ProfilePhotoSelector";
 import axiosInstance from "../../utils/axiosInstanse.cjs";
 import { API_PATHS } from "../../utils/apiPaths.cjs";
-import { UserContext } from "../../context/UserContext";
 import uploadImage from "../../utils/uploadImage.cjs";
+import { UserContext } from "../../context/userContext";
 
 const SignUp = () => {
   const [profilePic, setProfilePic] = useState(null);
@@ -99,7 +99,7 @@ const SignUp = () => {
               onChange={({ target }) => setEmail(target.value)}
               label="Email Address"
               placeholder="john@example.com"
-              type="email"
+              type="text"
             />
             <div className="col-span-2">
               <Input
@@ -113,11 +113,11 @@ const SignUp = () => {
           </div>
           {error && <p className="text-red-500 text-xs pb-2.5">{error}</p>}
 
-          <button type="submit" className="btn-primary cursor-pointer">
+          <button type="submit" className="btn-primary">
             SIGN UP
           </button>
 
-          <p>
+          <p className="text-[13px] text-slate-800 mt-3">
             Already have an account?{" "}
             <Link className="font-medium text-primary underline" to="/login">
               Login

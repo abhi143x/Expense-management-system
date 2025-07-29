@@ -5,7 +5,8 @@ import Input from "../../components/Inputs/Input";
 import { validateEmail } from "../../utils/helper.cjs";
 import axiosInstance from "../../utils/axiosInstanse.cjs";
 import { API_PATHS } from "../../utils/apiPaths.cjs";
-import { UserContext } from "../../context/UserContext";
+import { UserContext } from "../../context/userContext";
+
 
 
 
@@ -69,7 +70,7 @@ const Login = () => {
             onChange={({ target }) => setEmail(target.value)}
             label="Email Address"
             placeholder="john@example.com"
-            type="email"
+            type="text"
           />
 
           <Input
@@ -82,13 +83,13 @@ const Login = () => {
 
           {error && <p className="text-red-500 text-xs pb-2.5">{error}</p>}
 
-          <button type="submit" className="btn-primary cursor-pointer">
+          <button type="submit" className="btn-primary">
             Login
           </button>
 
-          <p>
+          <p className="text-[13px] text-slate-800 mt-3">
             Don't have an accont?{" "}
-            <Link className="font-medium text-primary underline " to="/signup">
+            <Link className="font-medium text-primary underline  " to="/signup">
               SignUp
             </Link>
           </p>

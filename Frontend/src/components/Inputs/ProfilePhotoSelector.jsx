@@ -26,7 +26,7 @@ const ProfilePhotoSelector = ({ image, setImage }) => {
     inputRef.current.click();
   };
   return (
-    <div className="flex justify-center mb-6">
+    <div className="flex justify-center mb-6 ">
       <input
         type="file"
         accept="image/*"
@@ -37,13 +37,12 @@ const ProfilePhotoSelector = ({ image, setImage }) => {
 
       {!image ? (
         <div className="w-20 h-20 flex items-center justify-center bg-purple-100 rounded-full relative">
-          <LuUser className="text-4xl text-primary" />
+          <LuUser className="text-4xl text-primary " />
           <button
             type="button"
-            className="w-8 h-8 items-center flex justify-center bg-primary text-white rounded-full absolute -bottom-1 -right-1"
+            className="w-8 h-8 items-center flex justify-center bg-primary text-white rounded-full absolute -bottom-1 -right-1 cursor-pointer"
             onClick={onChooseFile}
           >
-            {" "}
             <LuUpload />
           </button>
         </div>
