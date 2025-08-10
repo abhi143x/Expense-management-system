@@ -1,4 +1,5 @@
-export const BASE_URL = "http://localhost:8000";
+export const BASE_URL = "https://expense-management-system-backend-3ugc.onrender.com" || "http://localhost:8000";
+
 
 // utils/apiPaths.cjs
 export const API_PATHS = {
