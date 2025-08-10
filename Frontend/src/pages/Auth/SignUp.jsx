@@ -9,6 +9,7 @@ import { API_PATHS } from "../../utils/apiPaths.cjs";
 import uploadImage from "../../utils/uploadImage.cjs";
 import { UserContext } from "../../context/UserContext";
 
+
 const SignUp = () => {
   const [profilePic, setProfilePic] = useState(null);
   const [fullName, setFullName] = useState("");
