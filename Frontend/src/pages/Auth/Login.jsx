@@ -5,7 +5,7 @@ import Input from "../../components/Inputs/Input";
 import { validateEmail } from "../../utils/helper.cjs";
 import axiosInstance from "../../utils/axiosInstanse.cjs";
 import { API_PATHS } from "../../utils/apiPaths.cjs";
-import { UserContext } from "../../context/userContext";
+import { UserContext } from "../../context/UserContext";
 
 
 
