@@ -93,6 +93,14 @@ const Login = () => {
               SignUp
             </Link>
           </p>
+
+           {/* Demo credentials note */}
+          <p className="text-xs text-slate-600 mt-4 border border-slate-300 rounded-md p-2 bg-slate-50">
+            <span className="font-medium">Demo Credentials:</span> <br />
+            <span className="font-medium">Email:</span> demo@gmail.com <br />
+            <span className="font-medium">Password:</span> demo@100
+          </p>
+
         </form>
       </div>
     </AuthLayout>
