@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import DashboardLayout from "../../components/layouts/DashboardLayout";
 import IncomeOverview from "../../components/Income/IncomeOverview";
-import axiosInstance from "../../utils/axiosInstanse.cjs";
-import { API_PATHS } from "../../utils/apiPaths.cjs";
+import axiosInstance from "../../utils/axiosInstance.js";
+import { API_PATHS } from "../../utils/apiPaths.js";
 import Modal from "../../components/Modal";
 import AddIncomeForm from "../../components/Income/AddIncomeForm";
 import toast from "react-hot-toast";
@@ -14,7 +14,6 @@ const Income = () => {
   useUserAuth();
 
   const [incomeData, setIncomeData] = useState([]);
-  const [loading, setLoading] = useState(false);
   const [openDeleteAlert, setOpenDeleteAlert] = useState({
     show: false,
     data: null,
@@ -23,11 +22,7 @@ const Income = () => {
   const [openAddIncomeModal, setOpenAddIncomeModal] = useState(false);
 
   //Get all income details
-  const fetchIncomeDetails = async () => {
-    if (loading) return;
-
-    setLoading(true);
-
+  const fetchIncomeDetails = useCallback(async () => {
     try {
       const response = await axiosInstance.get(
         `${API_PATHS.INCOME.GET_ALL_INCOME}`
@@ -38,10 +33,8 @@ const Income = () => {
       }
     } catch (error) {
       console.log("Something went wrong, Please Try again. Error:", error);
-    } finally {
-      setLoading(false);
     }
-  };
+  }, []);
 
   //handle add income
   const handleAddIncome = async (income) => {
@@ -120,7 +113,7 @@ const Income = () => {
     fetchIncomeDetails();
 
     return () => {};
-  }, []);
+  }, [fetchIncomeDetails]);
 
   return (
     <DashboardLayout activeMenu="Income">

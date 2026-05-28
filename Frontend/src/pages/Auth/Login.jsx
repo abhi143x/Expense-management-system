@@ -2,10 +2,10 @@ import React, { useContext, useState } from "react";
 import AuthLayout from "../../components/layouts/AuthLayout";
 import { Link, useNavigate } from "react-router-dom";
 import Input from "../../components/Inputs/Input";
-import { validateEmail } from "../../utils/helper.cjs";
-import axiosInstance from "../../utils/axiosInstanse.cjs";
-import { API_PATHS } from "../../utils/apiPaths.cjs";
-import { UserContext } from "../../context/UserContext";
+import { validateEmail } from "../../utils/helper.js";
+import axiosInstance from "../../utils/axiosInstance.js";
+import { API_PATHS } from "../../utils/apiPaths.js";
+import { UserContext } from "../../context/authContext.js";
 
 
 

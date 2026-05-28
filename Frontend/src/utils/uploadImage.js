@@ -1,5 +1,5 @@
-import { API_PATHS } from "./apiPaths.cjs";
-import axiosInstance from "./axiosInstanse.cjs";
+import { API_PATHS } from "./apiPaths.js";
+import axiosInstance from "./axiosInstance.js";
 
 const uploadImage = async (imageFile) =>{
     const formData = new FormData();
@@ -9,7 +9,7 @@ const uploadImage = async (imageFile) =>{
     try {
         const response = await axiosInstance.post(API_PATHS.IMAGE.UPLOAD_IMAGE, formData, {
             headers: {
-                'Content-Type': 'multipart/formData', //set header for file upload
+                'Content-Type': 'multipart/form-data', //set header for file upload
             },
         });
         return response.data; // Return response data 

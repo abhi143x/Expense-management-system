@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { LuPlus } from "react-icons/lu";
-import { prepareIncomeBarChartData } from "../../utils/helper.cjs";
+import { prepareIncomeBarChartData } from "../../utils/helper.js";
 import CustomBarChart from "../Charts/CustomBarChart";
 
 const IncomeOverview = ({ transactions, onAddIncome }) => {

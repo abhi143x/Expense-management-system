@@ -1,7 +1,7 @@
-export const BASE_URL = "https://expense-management-system-backend-3ugc.onrender.com" || "http://localhost:8000";
+export const BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:5000";
 
 
-// utils/apiPaths.cjs
+// utils/apiPaths.js
 export const API_PATHS = {
     AUTH: {
         LOGIN: "/api/v1/auth/login",
@@ -15,7 +15,7 @@ export const API_PATHS = {
         ADD_INCOME: "/api/v1/income/add",
         GET_ALL_INCOME: "/api/v1/income/get",
         DELETE_INCOME:(incomeId) => `/api/v1/income/${incomeId}`,
-        DOWNLOAD_INCOME: "/api/v1/income/downloadExcel",
+        DOWNLOAD_INCOME: "/api/v1/income/downloadexcel",
     },
     EXPENSE:{
         ADD_EXPENSE: "/api/v1/expense/add",

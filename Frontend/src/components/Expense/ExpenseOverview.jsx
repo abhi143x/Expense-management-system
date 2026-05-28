@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { LuPlus } from "react-icons/lu";
-import { prepareExpenseLineChartData } from "../../utils/helper.cjs";
+import { prepareExpenseLineChartData } from "../../utils/helper.js";
 import CustomLineChart from "../Charts/CustomLineChart";
 
 const ExpenseOverview = ({ transactions, onExpenseIncome }) => {

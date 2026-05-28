@@ -1,8 +1,8 @@
 import { useContext, useEffect } from "react"
-import { UserContext } from "../context/UserContext"
+import { UserContext } from "../context/authContext.js"
 import { useNavigate } from "react-router-dom";
-import axiosInstance from "../utils/axiosInstanse.cjs";
-import { API_PATHS } from "../utils/apiPaths.cjs";
+import axiosInstance from "../utils/axiosInstance.js";
+import { API_PATHS } from "../utils/apiPaths.js";
 
 
 export const useUserAuth = () =>{
@@ -35,5 +35,5 @@ export const useUserAuth = () =>{
         return () => {
             isMounted = false;
         };
-    }, [updateUser, clearUser, navigate]);
+    }, [user, updateUser, clearUser, navigate]);
 };

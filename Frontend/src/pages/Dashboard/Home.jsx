@@ -1,13 +1,13 @@
-import React, { useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import DashboardLayout from '../../components/layouts/DashboardLayout'
 import { useUserAuth } from '../../hooks/UseUserAuth';
 import { useNavigate } from 'react-router-dom';
-import axiosInstance from '../../utils/axiosInstanse.cjs';
-import { API_PATHS } from '../../utils/apiPaths.cjs';
+import axiosInstance from '../../utils/axiosInstance.js';
+import { API_PATHS } from '../../utils/apiPaths.js';
 import InfoCard from '../../components/Cards/InfoCard';
 import { LuHandCoins, LuWalletMinimal } from 'react-icons/lu';
 import { IoMdCard } from "react-icons/io"
-import { addThousandsSeparator } from '../../utils/helper.cjs';
+import { addThousandsSeparator } from '../../utils/helper.js';
 import RecentTransactions from '../../components/Dashboard/RecentTransactions';
 import FinancialOverview from '../../components/Dashboard/FinancialOverview';
 import ExpenseTransactions from '../../components/Dashboard/ExpenseTransactions';
@@ -22,13 +22,8 @@ const Home = () => {
   const navigate = useNavigate();
 
   const [dashboardData, setDashboardData] = useState(null);
-  const [loading, setLoading] = useState(false);
 
-  const fetchDashboardData = async () => {
-    if (loading) return;
-
-    setLoading(true);
-
+  const fetchDashboardData = useCallback(async () => {
     try{
       const response = await axiosInstance.get(`${API_PATHS.DASHBOARD.GET_DATA}`)
 
@@ -37,15 +32,13 @@ const Home = () => {
       }
     } catch (error) {
       console.error("Something went wrong. Please try again later. Error:", error)
-    } finally {
-      setLoading(false)
     }
-  };
+  }, []);
 
   useEffect(() =>{
     fetchDashboardData();
     return () => {}
-  }, []);
+  }, [fetchDashboardData]);
   
    return (
    <DashboardLayout activeMenu="Dashboard">

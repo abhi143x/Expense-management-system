@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { useUserAuth } from "../../hooks/UseUserAuth";
 import DashboardLayout from "../../components/layouts/DashboardLayout";
-import { API_PATHS } from "../../utils/apiPaths.cjs";
-import axiosInstance from "../../utils/axiosInstanse.cjs";
+import { API_PATHS } from "../../utils/apiPaths.js";
+import axiosInstance from "../../utils/axiosInstance.js";
 import toast from "react-hot-toast";
 import ExpenseOverview from "../../components/Expense/ExpenseOverview";
 import Modal from "../../components/Modal";
@@ -14,7 +14,6 @@ const Expense = () => {
   useUserAuth();
 
   const [expenseData, setExpenseData] = useState([]);
-  const [loading, setLoading] = useState(false);
   const [openDeleteAlert, setOpenDeleteAlert] = useState({
     show: false,
     data: null,
@@ -23,11 +22,7 @@ const Expense = () => {
   const [openAddExpenseModal, setOpenAddExpenseModal] = useState(false);
 
   //Get all expense details
-  const fetchExpenseDetails = async () => {
-    if (loading) return;
-
-    setLoading(true);
-
+  const fetchExpenseDetails = useCallback(async () => {
     try {
       const response = await axiosInstance.get(
         `${API_PATHS.EXPENSE.GET_ALL_EXPENSE}`
@@ -38,10 +33,8 @@ const Expense = () => {
       }
     } catch (error) {
       console.log("Something went wrong, Please Try again. Error:", error);
-    } finally {
-      setLoading(false);
     }
-  };
+  }, []);
 
   //handle add expense
   const handleAddExpense = async (expense) => {
@@ -125,7 +118,7 @@ const Expense = () => {
     fetchExpenseDetails();
 
     return () => {};
-  }, []);
+  }, [fetchExpenseDetails]);
 
   return (
     <DashboardLayout activeMenu="Expense">
