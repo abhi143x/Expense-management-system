@@ -7,15 +7,12 @@ import axiosInstance from "../../utils/axiosInstance.js";
 import { API_PATHS } from "../../utils/apiPaths.js";
 import { UserContext } from "../../context/authContext.js";
 
-
-
-
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
 
-  const { updateUser } = useContext(UserContext)
+  const { updateUser } = useContext(UserContext);
 
   const navigate = useNavigate();
 
@@ -71,6 +68,7 @@ const Login = () => {
             label="Email Address"
             placeholder="john@example.com"
             type="text"
+            autoComplete="email"
           />
 
           <Input
@@ -79,6 +77,7 @@ const Login = () => {
             label="Password"
             placeholder="Min 8 Characters"
             type="password"
+            autoComplete="current-password"
           />
 
           {error && <p className="text-red-500 text-xs pb-2.5">{error}</p>}
@@ -94,13 +93,12 @@ const Login = () => {
             </Link>
           </p>
 
-           {/* Demo credentials note */}
+          {/* Demo credentials note */}
           <p className="text-xs text-slate-600 mt-4 border border-slate-300 rounded-md p-2 bg-slate-50">
             <span className="font-medium">Demo Credentials:</span> <br />
             <span className="font-medium">Email:</span> demo1@gmail.com <br />
             <span className="font-medium">Password:</span> Demo@123
           </p>
-
         </form>
       </div>
     </AuthLayout>

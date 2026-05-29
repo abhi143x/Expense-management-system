@@ -7,6 +7,12 @@
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4-06B6D4?logo=tailwindcss&logoColor=white)
 ![Vite](https://img.shields.io/badge/Vite-6-646CFF?logo=vite&logoColor=white)
 
+<div align="center">
+  <img src="docs/dashboard.png" alt="Expense Management System Dashboard" width="100%" />
+</div>
+
+<br />
+
 Expense Management System is a full-stack MERN application that helps users track income, expenses, and overall balance through a responsive dashboard. It demonstrates practical MERN stack development with JWT authentication, RESTful APIs, MongoDB aggregation, protected routes, reusable React components, chart-based analytics, image upload, and Excel export.
 
 This project is portfolio-ready for roles involving full-stack JavaScript, API integration, authentication, responsive UI development, database modeling, and performance-focused dashboard experiences.
@@ -42,57 +48,6 @@ This project is portfolio-ready for roles involving full-stack JavaScript, API i
 | File Export | xlsx, Excel-compatible downloads |
 | API Client | Axios with request and response interceptors |
 | Tooling | ESLint, Nodemon, npm |
-
-## Screenshots and Visual Presentation
-
-Recommended screenshot folder:
-
-```text
-docs/
-+-- banner.png
-+-- demo.gif
-+-- screenshots/
-    +-- login.png
-    +-- signup.png
-    +-- dashboard-overview.png
-    +-- income-management.png
-    +-- expense-management.png
-    +-- mobile-responsive.png
-```
-
-| Screenshot | Caption |
-| --- | --- |
-| `docs/screenshots/login.png` | Secure login screen with JWT-based authentication and demo credentials. |
-| `docs/screenshots/signup.png` | User registration flow with optional profile image upload. |
-| `docs/screenshots/dashboard-overview.png` | Dashboard summary showing balance, income, expenses, charts, and recent transactions. |
-| `docs/screenshots/income-management.png` | Income tracking workflow with add, delete, chart, and Excel export actions. |
-| `docs/screenshots/expense-management.png` | Expense tracking workflow with categorized records and export support. |
-| `docs/screenshots/mobile-responsive.png` | Responsive dashboard experience optimized for smaller screens. |
-
-### Recommended GitHub Banner
-
-Create a `1280x640` PNG at `docs/banner.png` with:
-
-- Title: `Expense Management System`
-- Subtitle: `MERN finance dashboard with JWT auth, analytics, and Excel exports`
-- Visual style: clean dashboard screenshot collage, white background, violet primary accent, green/red finance indicators.
-- Include three UI highlights: balance cards, chart section, transaction list.
-
-### Demo GIF or Walkthrough Video
-
-Add a short GIF or video after the overview section:
-
-```markdown
-![Expense Management System Demo](docs/demo.gif)
-```
-
-Suggested walkthrough flow:
-
-1. Sign up or log in.
-2. View dashboard totals and charts.
-3. Add an income record.
-4. Add an expense record.
-5. Download income or expense Excel reports.
 
 ## Architecture Explanation
 
@@ -652,7 +607,6 @@ Suggested naming improvements:
 - Standardize route casing, for example `/download-excel`.
 - Keep utility module names in consistent camelCase, such as `apiPaths.js`, `axiosInstance.js`, and `uploadImage.js`.
 - Move API request functions into a `services/` directory as the app grows.
-- Add a root-level `LICENSE` file if publishing publicly.
 
 ## Scalability, Security, and Maintainability Improvements
 
@@ -703,4 +657,4 @@ npm run build
 
 ## License
 
-This project is licensed under the MIT License based on the current package metadata. Add a root-level `LICENSE` file before publishing or distributing the project publicly.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.

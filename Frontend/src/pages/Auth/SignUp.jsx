@@ -9,7 +9,6 @@ import { API_PATHS } from "../../utils/apiPaths.js";
 import uploadImage from "../../utils/uploadImage.js";
 import { UserContext } from "../../context/authContext.js";
 
-
 const SignUp = () => {
   const [profilePic, setProfilePic] = useState(null);
   const [fullName, setFullName] = useState("");
@@ -83,10 +82,8 @@ const SignUp = () => {
           Join us today by entering your details below.
         </p>
 
-        <form onSubmit={handleSignUp} >
-          
-            <ProfilePhotoSelector image={profilePic} setImage={setProfilePic} />
-          
+        <form onSubmit={handleSignUp}>
+          <ProfilePhotoSelector image={profilePic} setImage={setProfilePic} />
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <Input
@@ -95,6 +92,7 @@ const SignUp = () => {
               label="Full Name"
               placeholder="John"
               type="text"
+              autoComplete="name"
             />
 
             <Input
@@ -103,6 +101,7 @@ const SignUp = () => {
               onChange={({ target }) => setEmail(target.value)}
               label="Email Address"
               placeholder="john@example.com"
+              autoComplete="email"
             />
 
             <div className="md:col-span-2">
@@ -112,6 +111,7 @@ const SignUp = () => {
                 onChange={({ target }) => setPassword(target.value)}
                 label="Password"
                 placeholder="Minimum 8 Characters"
+                autoComplete="new-password"
               />
             </div>
           </div>
@@ -127,10 +127,7 @@ const SignUp = () => {
 
           <p className="text-[13px] text-slate-800 mt-3 text-center md:text-left">
             Already have an account?{" "}
-            <Link
-              className="font-medium text-primary underline"
-              to="/login"
-            >
+            <Link className="font-medium text-primary underline" to="/login">
               Login
             </Link>
           </p>
