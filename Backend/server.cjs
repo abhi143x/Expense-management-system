@@ -11,9 +11,12 @@ const dashboardRoutes = require("./routes/dashboardRoutes.cjs")
 const app = express()
 
 //Midddleware to handle CORS
+const allowedOrigins = process.env.CLIENT_URL.split(",");
+
 app.use(
     cors({
-        origin: process.env.CLIENT_URL || "*",
+        origin: allowedOrigins,
+        credentials: true,
         methods: ["GET", "POST", "PUT", "DELETE"],
         allowedHeaders: ["Content-Type", "Authorization"],
     })
