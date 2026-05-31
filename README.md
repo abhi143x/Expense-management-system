@@ -22,7 +22,6 @@ This project is portfolio-ready for roles involving full-stack JavaScript, API i
 | Resource             | Link                                                    |
 | -------------------- | ------------------------------------------------------- |
 | Live                 | https://expense-management-system-ui-juxs.onrender.com/ |
-| Portfolio Case Study | https://abhiraj-verma-portfolio.vercel.app/             |
 
 ## Key Features
 
