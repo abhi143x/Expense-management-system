@@ -192,22 +192,58 @@ JWT_SECRET=replace_with_a_long_random_secret
 CLIENT_URL=http://localhost:5173
 ```
 
+For production, set `CLIENT_URL` to the deployed frontend URL.
+
 ### Frontend `.env`
 
 ```env
 VITE_API_BASE_URL=http://localhost:5000
 ```
 
+For production, set `VITE_API_BASE_URL` to the deployed backend URL.
+
+
+## Build and Deployment
+
+### Frontend Deployment
+
+Recommended platforms: Vercel, Netlify, Render Static Site.
+
+```bash
+cd frontend
+npm run build
+npm run preview
+```
+
+Deployment settings:
+
+| Setting | Value |
+| --- | --- |
+| Root directory | `frontend` |
+| Build command | `npm run build` |
+| Publish directory | `dist` |
+| Environment variable | `VITE_API_BASE_URL=<your-backend-url>` |
+
+### Backend Deployment
+
+Recommended platforms: Render, Railway, Fly.io, or a VPS.
+
+Deployment settings:
+
+| Setting | Value |
+| --- | --- |
+| Root directory | `backend` |
+| Install command | `npm install` |
+| Start command | `npm start` |
+| Environment variables | `PORT`, `MONGO_URL`, `JWT_SECRET`, `CLIENT_URL` |
+
+After deploying the frontend, update backend `CLIENT_URL` so CORS allows requests from the deployed UI.
+
 ## API Overview
 
 - Base URL: `http://localhost:5000`
 - Auth header: `Authorization: Bearer <jwt_token>`
 - Core routes: `/api/v1/auth`, `/api/v1/dashboard`, `/api/v1/income`, `/api/v1/expense`
-
-## Deployment
-
-- Frontend: build with `npm run build`, deploy `frontend/dist`, set `VITE_API_BASE_URL`.
-- Backend: deploy `backend`, set `PORT`, `MONGO_URL`, `JWT_SECRET`, `CLIENT_URL`.
 
 ## Future Improvements
 
